@@ -1,0 +1,56 @@
+@startuml
+Player -- Team
+League -- Team
+Odds -- Team
+Odds -- User
+Odds -- Player
+League -- Athlete
+
+User <|-- Gambler
+User <|-- Fantasy
+Athlete <|-- Player 
+
+
+class User {
+  {field} Full_name: String
+  {field} E_mail: String
+  {field} Credit_Card: Integer
+  {method} ValidateEntry ( email, card )
+}
+
+class Gambler {
+  {field} Bets_Record[]: Array
+  {method} getBalance( record ) 
+}
+
+class Fantasy {
+  {field} Favorites[]: Array
+}
+
+class Odds {
+  {field} Percentage: Double
+  {field} Most_Likely_Odd: Enum
+  {method} getOdds( percentage, mostlikelyodd )
+}
+class Athlete {
+  {field} Sport: String
+  {field} Winning_Record[]: Array
+  {field} Performance_Record[]: Array
+}
+
+class Player {
+  {field} Current_Team: String
+  {field} Team_History[]: Array
+}
+
+class League {
+  {field} Country: String
+  {field} Competition_Level: Enum
+}
+
+class Team {
+  {field} Team_name: String
+  {field} Team_record[]: Array
+}
+
+@enduml
